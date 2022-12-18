@@ -4,7 +4,10 @@ import { Products } from "../components/Products";
 
 function Home() {
     return (
-        <Products products={initialState.products}/>
+        <>
+            <Products products={initialState.products}/>
+        </>
+        
     )
 }
 

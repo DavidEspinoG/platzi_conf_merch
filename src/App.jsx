@@ -8,23 +8,41 @@ import { Success } from "./routes/Success";
 import { NotFound } from "./routes/NotFound";
 import { Layout } from "./containers/Layout";
 import { AppContextProvider } from "./hooks/AppContext";
+import { Wrapper } from "@googlemaps/react-wrapper";
+import { Map } from "./components/Map";
 
 function App(){
     return (
+        
         <AppContextProvider>
             <BrowserRouter>
                 <Layout>
                     <Routes>
                         <Route path='/' element={<Home/>}/>
                         <Route path='/checkout' element={<Checkout/>}/>
+                        <Route path='/map' element={
+                            <Wrapper apiKey="AIzaSyAJ-Wg-PBcqZlSQ4aYZ01O0BZw77BxjgIk">
+                                <Map 
+                                    center={{ lat: -34.397, lng: 150.644 }}
+                                    zoom={8}
+                                />
+                            </Wrapper>
+                             
+                        }/>
                         <Route path='/checkout/information' element={<Information/>}/>
                         <Route path='/checkout/payment' element={<Payment/>}/>
-                        <Route path='/checkout/success' element={<Success/>}/>
+                        <Route path='/checkout/success' element={
+                            <Wrapper apiKey="AIzaSyAJ-Wg-PBcqZlSQ4aYZ01O0BZw77BxjgIk">
+                                <Success/>
+                            </Wrapper>
+                        
+                        }/>
                         <Route path='*' element={<NotFound/>}/>
                     </Routes>
                 </Layout>
             </BrowserRouter>
         </AppContextProvider>
+        
         
     )
 }
