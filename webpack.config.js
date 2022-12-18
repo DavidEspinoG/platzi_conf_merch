@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const Dotenv = require("dotenv-webpack");
 
 module.exports = {
     watch: false, 
@@ -11,7 +12,8 @@ module.exports = {
         publicPath: '/'
     }, 
     plugins: [
-        new HtmlWebpackPlugin({template: './public/index.html'})
+        new HtmlWebpackPlugin({template: './public/index.html'}),
+        new Dotenv()
     ],
     resolve : {
         extensions: ['.js', '.jsx']

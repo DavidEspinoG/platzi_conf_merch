@@ -21,7 +21,7 @@ function App(){
                         <Route path='/' element={<Home/>}/>
                         <Route path='/checkout' element={<Checkout/>}/>
                         <Route path='/map' element={
-                            <Wrapper apiKey="AIzaSyAJ-Wg-PBcqZlSQ4aYZ01O0BZw77BxjgIk">
+                            <Wrapper apiKey={process.env.GOOGLE_API_KEY}>
                                 <Map 
                                     center={{ lat: -34.397, lng: 150.644 }}
                                     zoom={8}
