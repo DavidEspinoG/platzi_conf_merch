@@ -8,13 +8,24 @@ function Success() {
     const { buyer } = state
     const { location, getLocation } = useGoogleLocation()
     useEffect(() => {
-        getLocation('Cuautitlán Izcalli')
+        try{
+            getLocation(buyer[0].address + ' ' + buyer[0].city)
+        } catch(err) {
+            console.log(err)
+            getLocation('Ciudad de México')
+        }
+            
     }, [])
     return (
         <div className="Success">
             <div className="Success-content">
-                <h2>Gracias por tu compra, {buyer.name} </h2>
-                <span>Tu pedido llegará en 3 días a tu dirección:</span>
+                {buyer.lenght > 0 && 
+                <>
+                    <h2>Gracias por tu compra, {buyer.name} </h2>
+                    <span>Tu pedido llegará en 3 días a tu dirección:</span>
+                </>
+                }
+                
             </div>
             <Map 
                 center={location}
