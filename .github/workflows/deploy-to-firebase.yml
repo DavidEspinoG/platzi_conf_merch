@@ -3,11 +3,8 @@ on:
   push:
     branches:
       - main
-env: 
-  GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
 jobs:
   build:
-    
     name: Build
     runs-on: ubuntu-latest
     steps:
@@ -16,6 +13,8 @@ jobs:
       - name: Install Dependencies
         run: npm install
       - name: Build
+        env: 
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
         run: npm run build
       - name: Archive Production Artifact
         uses: actions/upload-artifact@master
