@@ -4,7 +4,7 @@ import { Products } from "../components/Products";
 
 function Home() {
     React.useEffect(() => {
-        console.log(secrets.GOOGLE_API_KEY)
+        console.log(process.env.GOOGLE_API_KEY)
     })
     return (
         <>

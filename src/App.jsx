@@ -21,7 +21,7 @@ function App(){
                         <Route path='/' element={<Home/>}/>
                         <Route path='/checkout' element={<Checkout/>}/>
                         <Route path='/map' element={
-                            <Wrapper apiKey={secrets.GOOGLE_API_KEY}>
+                            <Wrapper apiKey={process.env.GOOGLE_API_KEY}>
                                 <Map 
                                     center={{ lat: -34.397, lng: 150.644 }}
                                     zoom={8}
@@ -32,7 +32,7 @@ function App(){
                         <Route path='/checkout/information' element={<Information/>}/>
                         <Route path='/checkout/payment' element={<Payment/>}/>
                         <Route path='/checkout/success' element={
-                            <Wrapper apiKey={secrets.GOOGLE_API_KEY}>
+                            <Wrapper apiKey={process.env.GOOGLE_API_KEY}>
                                 <Success/>
                             </Wrapper>
                         
