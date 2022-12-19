@@ -32,7 +32,7 @@ function App(){
                         <Route path='/checkout/information' element={<Information/>}/>
                         <Route path='/checkout/payment' element={<Payment/>}/>
                         <Route path='/checkout/success' element={
-                            <Wrapper apiKey="AIzaSyAJ-Wg-PBcqZlSQ4aYZ01O0BZw77BxjgIk">
+                            <Wrapper apiKey={process.env.GOOGLE_API_KEY}>
                                 <Success/>
                             </Wrapper>
                         

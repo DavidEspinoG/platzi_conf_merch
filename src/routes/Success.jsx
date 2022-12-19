@@ -8,14 +8,13 @@ function Success() {
     const { buyer } = state
     const { location, getLocation } = useGoogleLocation()
     useEffect(() => {
-        // try{
-        //     getLocation(buyer[0].address + ' ' + buyer[0].city)
-        // } catch(err) {
-        //     console.log(err)
-        //     getLocation('Ciudad de México')
-        // }
-            
-
+        console.log()
+        try{
+            getLocation(buyer[0].address + ' ' + buyer[0].city)
+        } catch(err) {
+            console.log(err)
+            getLocation('Ciudad de México')
+        }
     }, [])
     return (
         <div className="Success">
@@ -29,7 +28,7 @@ function Success() {
                 
             </div>
             <Map 
-                center={{lat: 12.909, lng: 29}}
+                center={location}
                 zoom={10}
             />
             
