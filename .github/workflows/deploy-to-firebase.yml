@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - main
+env: 
+  GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
 jobs:
   build:
     name: Build
@@ -14,8 +16,7 @@ jobs:
         run: npm install
       - name: Build
         run: npm run build
-        env: 
-          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+        
       - name: Archive Production Artifact
         uses: actions/upload-artifact@master
         with:
