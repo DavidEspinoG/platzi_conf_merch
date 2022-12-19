@@ -3,11 +3,11 @@ on:
   push:
     branches:
       - main
-
+env: 
+  GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
 jobs:
   build:
-    env: 
-      GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+    
     name: Build
     runs-on: ubuntu-latest
     steps:
