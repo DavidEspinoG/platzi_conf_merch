@@ -3,9 +3,6 @@ import initialState from "../data/initialState";
 import { Products } from "../components/Products";
 
 function Home() {
-    React.useEffect(() => {
-        console.log(process.env.GOOGLE_API_KEY)
-    })
     return (
         <>
             <Products products={initialState.products}/>
